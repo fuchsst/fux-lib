@@ -1,0 +1,12 @@
+{
+  "namespace": "net.stefanfuchs.fux.avro.enums.entity.ad",
+  "type": "enum",
+  "name": "AdType",
+  "symbols": [
+    "CONSUMER_GOOD",
+    "ESTATE_BUY",
+    "ESTATE_RENT",
+    "CAR",
+    "MOTOR_CYCLE"
+  ]
+}

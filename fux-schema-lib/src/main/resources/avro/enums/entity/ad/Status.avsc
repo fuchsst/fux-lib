@@ -1,0 +1,17 @@
+{
+  "namespace": "net.stefanfuchs.fux.avro.enums.entity.ad",
+  "type": "enum",
+  "name": "Status",
+  "symbols": [
+    "UNKNOWN",
+    "ACTIVE",
+    "DELETED",
+    "EXPIRED",
+    "INACTIVE",
+    "NEW",
+    "EDITING",
+    "PENDING_FOR_APPROVAL",
+    "PENDING_FOR_PAYMENT",
+    "REJECTED"
+  ]
+}

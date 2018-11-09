@@ -1,0 +1,9 @@
+kafka.address: localhost:9092
+avro.schemaregistry.url: http://localhost
+kafka.client.id: fux-example
+kafka.consumer.groupprefix: dev
+kafka.consumer.group: fux-example
+kafka.topic.prefix:
+kafka.topic.postfix:
+
+kafka.reconnect.backoff.ms: 500

@@ -1,0 +1,14 @@
+{
+  "namespace": "net.stefanfuchs.fux.avro.enums.common",
+  "doc": "List of possible sources (devices)",
+  "type": "enum",
+  "name": "SourceType",
+  "symbols": [
+    "UNKNOWN",
+    "DESKTOP",
+    "MOBILE_BROWSER",
+    "IOS",
+    "ANDROID",
+    "API"
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "namespace": "net.stefanfuchs.fux.avro.enums.entity.ad",
+  "type": "enum",
+  "name": "DisplayStatus",
+  "symbols": [
+    "ACTIVE",
+    "SOLD",
+    "RESERVED"
+  ]
+}

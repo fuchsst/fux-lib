@@ -1,0 +1,12 @@
+{
+  "namespace": "net.stefanfuchs.fux.avro.enums.common",
+  "doc": "List of possible verticals",
+  "type": "enum",
+  "name": "VerticalType",
+  "symbols": [
+    "MARKETPLACE",
+    "ESTATE",
+    "MOTOR",
+    "UNDEFINED"
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "namespace": "net.stefanfuchs.fux.avro.dto.user",
+  "doc": "Generic DTO for UserEvents",
+  "type": "record",
+  "name": "UserEventDTO",
+  "fields": [
+    {
+      "name": "eventTime",
+      "type": "string",
+      "doc": "Timestamp of event time as Time-UUID"
+    },
+    {
+      "name": "userUuid",
+      "type": "string",
+      "doc": "Id of user that triggered the event as UUID"
+    },
+    {
+      "name": "sourceType",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null,
+      "doc": "Code of source as defined in net.stefanfuchs.fux.avro.enums.common.SourceType"
+    },
+    {
+      "name": "userEventType",
+      "type": "string",
+      "doc": "Code of source as defined in net.stefanfuchs.fux.avro.enums.entity.user.UserEventType"
+    },
+    {
+      "name": "payload",
+      "type": [
+        "null",
+        {
+          "type": "map",
+          "values": "string"
+        }
+      ],
+      "default": null
+    }
+  ]
+}

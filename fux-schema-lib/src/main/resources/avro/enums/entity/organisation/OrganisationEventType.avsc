@@ -1,0 +1,11 @@
+{
+  "namespace": "net.stefanfuchs.fux.avro.enums.entity.organisation",
+  "type": "enum",
+  "name": "OrganisationEventType",
+  "symbols": [
+    "ORGANISATION_PROFILE_VIEWED",
+    "ORGANISATION_REGISTERED"
+  ]
+}
+
+

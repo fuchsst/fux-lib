@@ -1,0 +1,606 @@
+{
+  "namespace": "net.stefanfuchs.fux.avro.dto.ad",
+  "doc": "DTO of a complete Ad including attributes etc.",
+  "type": "record",
+  "name": "AdDTO",
+  "fields": [
+    {
+      "name": "adUuid",
+      "doc": "The UUID of the Ad used between services",
+      "type": "string"
+    },
+    {
+      "name": "externalAdId",
+      "doc": "The advert identifier of an external system (this is only relevant in case the advert is being imported from an external system)",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "vertical",
+      "doc": "The code of the vertical as defined in net.stefanfuchs.fux.avro.enums.common.VerticalType",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "adType",
+      "doc": "The code of the advert type as defined in net.stefanfuchs.fux.avro.enums.entity.ad.AdType",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "status",
+      "doc": "The status of the advert as defined in net.stefanfuchs.fux.avro.enums.entity.ad.Status",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "displayStatus",
+      "doc": "The status of the advert as defined in net.stefanfuchs.fux.avro.enums.entity.ad.DisplayStatus",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "description",
+      "doc": "A textual description, actually the title",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "categoryUuid",
+      "doc": "The UUID of the category of the advert",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "endDate",
+      "doc": "The max LocalDateTime the advert is allowed to be published",
+      "type": [
+        "null",
+        "long"
+      ],
+      "logicalType": "timestamp-millis",
+      "default": null
+    },
+    {
+      "name": "publishedDate",
+      "doc": "The date when the advert was published",
+      "type": [
+        "null",
+        "long"
+      ],
+      "logicalType": "timestamp-millis",
+      "default": null
+    },
+    {
+      "name": "changedDate",
+      "doc": "The date when the advert was changed the last time",
+      "type": [
+        "null",
+        "long"
+      ],
+      "logicalType": "timestamp-millis",
+      "default": null
+    },
+    {
+      "name": "address",
+      "doc": "The address information of the advert",
+      "type": [
+        "null",
+        {
+          "namespace": "net.stefanfuchs.fux.avro.dto.ad",
+          "name": "Address",
+          "doc": "Address information for an advert",
+          "type": "record",
+          "fields": [
+            {
+              "name": "addressUuid",
+              "doc": "primary key",
+              "type": [
+                "null",
+                "string"
+              ],
+              "default": null
+            },
+            {
+              "name": "country",
+              "doc": "country code",
+              "type": [
+                "null",
+                "string"
+              ],
+              "default": null
+            },
+            {
+              "name": "province",
+              "doc": "name of the provice (state)",
+              "type": [
+                "null",
+                "string"
+              ],
+              "default": null
+            },
+            {
+              "name": "district",
+              "doc": "The district the address belongs to",
+              "type": [
+                "null",
+                "string"
+              ],
+              "default": null
+            },
+            {
+              "name": "postCode",
+              "doc": "postal (zip) code",
+              "type": [
+                "null",
+                "string"
+              ],
+              "default": null
+            },
+            {
+              "name": "postalName",
+              "doc": "city name",
+              "type": [
+                "null",
+                "string"
+              ],
+              "default": null
+            },
+            {
+              "name": "street",
+              "doc": "street including housnaumer etc.",
+              "type": [
+                "null",
+                "string"
+              ],
+              "default": null
+            }
+          ]
+        }
+      ],
+      "default": null
+    },
+    {
+      "name": "images",
+      "type": [
+        "null",
+        {
+          "type": "array",
+          "items": {
+            "namespace": "net.stefanfuchs.fux.avro.dto.ad",
+            "name": "Image",
+            "doc": "Images reference of an advert",
+            "type": "record",
+            "fields": [
+              {
+                "name": "reference",
+                "doc": "path to the image",
+                "type": [
+                  "null",
+                  "string"
+                ],
+                "default": null
+              },
+              {
+                "name": "description",
+                "doc": "Description of the image",
+                "type": [
+                  "null",
+                  "string"
+                ],
+                "default": null
+              }
+            ]
+          }
+        }
+      ],
+      "default": null
+    },
+    {
+      "name": "user",
+      "doc": "The user (contact) that owns the advert",
+      "type": [
+        "null",
+        {
+          "namespace": "net.stefanfuchs.fux.avro.dto.ad",
+          "name": "User",
+          "doc": "Information about the user that owns an advert",
+          "type": "record",
+          "fields": [
+            {
+              "name": "uuid",
+              "doc": "The UUID of the user used between services",
+              "type": "string"
+            },
+            {
+              "name": "name",
+              "doc": "Username (unique), also used to login",
+              "type": [
+                "null",
+                "string"
+              ],
+              "default": null
+            },
+            {
+              "name": "email",
+              "doc": "eMail address of the user",
+              "type": [
+                "null",
+                "string"
+              ],
+              "default": null
+            },
+            {
+              "name": "phone",
+              "doc": "Landline phone number the user entered in his profile",
+              "type": [
+                "null",
+                "string"
+              ],
+              "default": null
+            },
+            {
+              "name": "mobile",
+              "doc": "Mobile phone number the user entered in his profile",
+              "type": [
+                "null",
+                "string"
+              ],
+              "default": null
+            },
+            {
+              "name": "fax",
+              "doc": "fax number",
+              "type": [
+                "null",
+                "string"
+              ],
+              "default": null
+            },
+            {
+              "name": "url",
+              "doc": "URL to the homepage of the user",
+              "type": [
+                "null",
+                "string"
+              ],
+              "default": null
+            },
+            {
+              "name": "picture",
+              "doc": "The users profile picture",
+              "type": [
+                "null",
+                {
+                  "namespace": "net.stefanfuchs.fux.avro.dto.ad",
+                  "name": "UserImage",
+                  "doc": "Images reference of an user",
+                  "type": "record",
+                  "fields": [
+                    {
+                      "name": "reference",
+                      "doc": "path to the image",
+                      "type": [
+                        "null",
+                        "string"
+                      ],
+                      "default": null
+                    },
+                    {
+                      "name": "description",
+                      "doc": "Description of the image",
+                      "type": [
+                        "null",
+                        "string"
+                      ],
+                      "default": null
+                    }
+                  ]
+                }
+              ],
+              "default": null
+            }
+          ]
+        }
+      ],
+      "default": null
+    },
+    {
+      "name": "organisation",
+      "doc": "Organisation the advert belongs to",
+      "type": [
+        "null",
+        {
+          "namespace": "net.stefanfuchs.fux.avro.dto.ad",
+          "name": "Organisation",
+          "doc": "Information about the organisation that owns an advert",
+          "type": "record",
+          "fields": [
+            {
+              "name": "uuid",
+              "doc": "The UUID of the organisation used between services",
+              "type": "string"
+            },
+            {
+              "name": "partnerId",
+              "doc": "ID used to identify the organisation by external systems",
+              "type": [
+                "null",
+                "string"
+              ],
+              "default": null
+            },
+            {
+              "name": "name",
+              "doc": "The organisation name",
+              "type": [
+                "null",
+                "string"
+              ],
+              "default": null
+            },
+            {
+              "name": "email",
+              "doc": "Main contact email address",
+              "type": [
+                "null",
+                "string"
+              ],
+              "default": null
+            },
+            {
+              "name": "phone",
+              "doc": "primary phone number",
+              "type": [
+                "null",
+                "string"
+              ],
+              "default": null
+            },
+            {
+              "name": "phone2",
+              "doc": "secondary phone number",
+              "type": [
+                "null",
+                "string"
+              ],
+              "default": null
+            },
+            {
+              "name": "fax",
+              "doc": "fax number",
+              "type": [
+                "null",
+                "string"
+              ],
+              "default": null
+            },
+            {
+              "name": "url",
+              "doc": "URL to the homepage",
+              "type": [
+                "null",
+                "string"
+              ],
+              "default": null
+            },
+            {
+              "name": "image",
+              "doc": "logo of the organisation",
+              "type": [
+                "null",
+                {
+                  "namespace": "net.stefanfuchs.fux.avro.dto.ad",
+                  "name": "OrgImage",
+                  "doc": "Images reference of an organisation",
+                  "type": "record",
+                  "fields": [
+                    {
+                      "name": "reference",
+                      "doc": "path to the image",
+                      "type": [
+                        "null",
+                        "string"
+                      ],
+                      "default": null
+                    },
+                    {
+                      "name": "description",
+                      "doc": "Description of the image",
+                      "type": [
+                        "null",
+                        "string"
+                      ],
+                      "default": null
+                    }
+                  ]
+                }
+              ],
+              "default": null
+            },
+            {
+              "name": "address",
+              "doc": "The postal address of the organisation",
+              "type": [
+                "null",
+                {
+                  "namespace": "net.stefanfuchs.fux.avro.dto.ad",
+                  "name": "OrgAddress",
+                  "doc": "Address information of a organisation",
+                  "type": "record",
+                  "fields": [
+                    {
+                      "name": "uuid",
+                      "doc": "primary key",
+                      "type": [
+                        "null",
+                        "string"
+                      ],
+                      "default": null
+                    },
+                    {
+                      "name": "country",
+                      "doc": "country code",
+                      "type": [
+                        "null",
+                        "string"
+                      ],
+                      "default": null
+                    },
+                    {
+                      "name": "province",
+                      "doc": "name of the provice (state)",
+                      "type": [
+                        "null",
+                        "string"
+                      ],
+                      "default": null
+                    },
+                    {
+                      "name": "district",
+                      "doc": "The district the address belongs to",
+                      "type": [
+                        "null",
+                        "string"
+                      ],
+                      "default": null
+                    },
+                    {
+                      "name": "postCode",
+                      "doc": "postal (zip) code",
+                      "type": [
+                        "null",
+                        "string"
+                      ],
+                      "default": null
+                    },
+                    {
+                      "name": "postalName",
+                      "doc": "city name",
+                      "type": [
+                        "null",
+                        "string"
+                      ],
+                      "default": null
+                    },
+                    {
+                      "name": "street",
+                      "doc": "street including housenumber etc.",
+                      "type": [
+                        "null",
+                        "string"
+                      ],
+                      "default": null
+                    }
+                  ]
+                }
+              ],
+              "default": null
+            }
+          ]
+        }
+      ],
+      "default": null
+    },
+    {
+      "name": "attributeValues",
+      "doc": "List of attributes the advert has (based on category tree)",
+      "type": [
+        "null",
+        {
+          "type": "array",
+          "items": {
+            "namespace": "net.stefanfuchs.fux.avro.dto.ad",
+            "name": "AttributeValue",
+            "doc": "Single attribute value of an advert",
+            "type": "record",
+            "fields": [
+              {
+                "name": "code",
+                "doc": "Unique code that identifies the attribute",
+                "type": [
+                  "null",
+                  "string"
+                ],
+                "default": null
+              },
+              {
+                "name": "textValue",
+                "doc": "Value, if the attribute is of type text",
+                "type": [
+                  "null",
+                  "string"
+                ],
+                "default": null
+              },
+              {
+                "name": "intValue",
+                "doc": "Value, if the attribute is of type long/int",
+                "type": [
+                  "null",
+                  "long"
+                ],
+                "default": null
+              },
+              {
+                "name": "decimalValue",
+                "doc": "Value, if the attribute is of type decimal/floating point",
+                "type": [
+                  "null",
+                  {
+                    "type": "bytes",
+                    "logicalType": "decimal",
+                    "precision": 16,
+                    "scale": 4
+                  }
+                ],
+                "default": null
+              },
+              {
+                "name": "boolValue",
+                "doc": "Value, if the attribute is of type boolean",
+                "type": [
+                  "null",
+                  "boolean"
+                ],
+                "default": null
+              },
+              {
+                "name": "dateValue",
+                "doc": "Value, if the attribute is of type date/time",
+                "type": [
+                  "null",
+                  "long"
+                ],
+                "logicalType": "timestamp-millis",
+                "default": null
+              }
+            ]
+          }
+        }
+      ],
+      "default": null
+    }
+  ]
+}

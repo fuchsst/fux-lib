@@ -1,0 +1,25 @@
+{
+  "namespace": "net.stefanfuchs.fux.avro.enums.entity.ad",
+  "type": "enum",
+  "name": "AdEventType",
+  "symbols": [
+    "AD_VIEWED",
+    "SELLER_CALLED",
+    "AD_CREATED",
+    "AD_PUBLISHED",
+    "UPSELLING_BOUGHT",
+    "SEND_TO_AD_CONTROL",
+    "AD_RECOMMENDED",
+    "AD_UNPUBLISHED",
+    "SELLER_CONTACTED",
+    "AD_DELETED",
+    "AD_REJECTED",
+    "AD_APPROVED",
+    "AD_PENDING_FOR_PAYMENT",
+    "AD_EXPIRED",
+    "AD_DEACTIVATED",
+    "AD_ACTIVATED"
+  ]
+}
+
+

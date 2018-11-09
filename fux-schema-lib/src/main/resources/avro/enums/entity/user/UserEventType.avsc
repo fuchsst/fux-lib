@@ -1,0 +1,15 @@
+{
+  "namespace": "net.stefanfuchs.fux.avro.enums.entity.user",
+  "type": "enum",
+  "name": "UserEventType",
+  "symbols": [
+    "USER_LOGGED_IN",
+    "USER_PASSWORD_CHANGED",
+    "NEWSLETTER_SUBSCRIBED",
+    "NEWSLETTER_UNSUBSCRIBED",
+    "USER_REGISTERED",
+    "USER_PROFILE_CHANGED"
+  ]
+}
+
+

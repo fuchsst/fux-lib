@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>fux-lib</artifactId>
+        <groupId>net.stefanfuchs</groupId>
+        <version>1</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>fux-schema-lib</artifactId>
+
+    <properties>
+        <main.basedir>${project.parent.basedir}</main.basedir>
+        <generatedsources.dir>${project.basedir}/src/main/generated-sources/</generatedsources.dir>
+        <avro.schema.dir>${project.basedir}/src/main/resources/avro/</avro.schema.dir>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.apache.avro</groupId>
+            <artifactId>avro</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-clean-plugin</artifactId>
+                <configuration>
+                    <filesets>
+                        <fileset>
+                            <directory>${generatedsources.dir}</directory>
+                        </fileset>
+                    </filesets>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.avro</groupId>
+                <artifactId>avro-maven-plugin</artifactId>
+                <version>${avro.version}</version>
+                <executions>
+                    <execution>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>schema</goal>
+                        </goals>
+                        <configuration>
+                            <imports>
+                                <import>${avro.schema.dir}enums/common/PageType.avsc</import>
+                                <import>${avro.schema.dir}enums/common/SourceType.avsc</import>
+                                <import>${avro.schema.dir}enums/common/VerticalType.avsc</import>
+
+                                <import>${avro.schema.dir}enums/entity/AdEventType.avsc</import>
+                                <import>${avro.schema.dir}enums/entity/OrganisationEventType.avsc</import>
+                                <import>${avro.schema.dir}enums/entity/UserEventType.avsc</import>
+
+                                <import>${avro.schema.dir}dto/ad/AdDTO.avsc</import>
+                                <import>${avro.schema.dir}dto/ad/AdEventDTO.avsc</import>
+                                <import>${avro.schema.dir}dto/lcm/LcmMessageEventDTO.avsc</import>
+                                <import>${avro.schema.dir}dto/organisation/OrganisationEventDTO.avsc</import>
+                                <import>${avro.schema.dir}dto/user/UserEventDTO.avsc</import>
+
+                                <import>${avro.schema.dir}dto/statistic/car/CarStatisticAdDetailsDTO.avsc</import>
+                                <import>${avro.schema.dir}dto/statistic/car/CarStatisticMonthlySummaryDTO.avsc</import>
+                            </imports>
+                            <sourceDirectory>${avro.schema.dir}</sourceDirectory>
+                            <outputDirectory>${generatedsources.dir}</outputDirectory>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${apache.compiler.plugin.version}</version>
+                <configuration>
+                    <source>${maven.compiler.sourceType}</source>
+                    <target>${maven.compiler.target}</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>

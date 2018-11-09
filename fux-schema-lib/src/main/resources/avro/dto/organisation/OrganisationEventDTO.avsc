@@ -1,0 +1,43 @@
+{
+  "namespace": "net.stefanfuchs.fux.avro.dto.organisation",
+  "doc": "Generic DTO for OrganisationEvents",
+  "type": "record",
+  "name": "OrganisationEventDTO",
+  "fields": [
+    {
+      "name": "eventTime",
+      "type": "string",
+      "doc": "Timestamp of event time as Time-UUID"
+    },
+    {
+      "name": "orgUuid",
+      "type": "string",
+      "doc": "UUID of the organisation the event is linked to"
+    },
+    {
+      "name": "sourceType",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null,
+      "doc": "Code of source as defined in net.stefanfuchs.fux.avro.enums.common.SourceType"
+    },
+    {
+      "name": "organisationEventType",
+      "type": "string",
+      "doc": "Code of source as defined in net.stefanfuchs.fux.avro.enums.entity.user.UserEventType"
+    },
+    {
+      "name": "payload",
+      "type": [
+        "null",
+        {
+          "type": "map",
+          "values": "string"
+        }
+      ],
+      "default": null
+    }
+  ]
+}

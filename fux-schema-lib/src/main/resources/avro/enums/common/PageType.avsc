@@ -1,0 +1,14 @@
+{
+  "namespace": "net.stefanfuchs.fux.avro.enums.common",
+  "doc": "List of possible types of pages",
+  "type": "enum",
+  "name": "PageType",
+  "symbols": [
+    "LANDING_PAGE",
+    "SEARCH_RESULT",
+    "START_PAGE",
+    "USER_PROFILE",
+    "COMPANY_PROFILE",
+    "AD_DETAIL"
+  ]
+}

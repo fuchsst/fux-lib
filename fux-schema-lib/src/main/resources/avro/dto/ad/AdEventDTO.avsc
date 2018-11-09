@@ -1,0 +1,69 @@
+{
+  "namespace": "net.stefanfuchs.fux.avro.dto.ad",
+  "doc": "Generic DTO for AdEvents",
+  "type": "record",
+  "name": "AdEventDTO",
+  "fields": [
+    {
+      "name": "eventTime",
+      "type": "string",
+      "doc": "Timestamp of event time as Time-UUID"
+    },
+    {
+      "name": "userUuid",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null,
+      "doc": "Id of user that triggered the event as UUID"
+    },
+    {
+      "name": "adUuid",
+      "type": "string",
+      "doc": "Id of Ad as UUID"
+    },
+    {
+      "name": "source",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null,
+      "doc": "Code of source as defined in net.stefanfuchs.fux.avro.enums.common.SourceType"
+    },
+    {
+      "name": "categoryId",
+      "type": [
+        "null",
+        "int"
+      ],
+      "default": null
+    },
+    {
+      "name": "vertical",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null,
+      "doc": "Code of source as defined in net.stefanfuchs.fux.avro.enums.common.VerticalType"
+    },
+    {
+      "name": "adEventType",
+      "type": "string",
+      "doc": "Code of source as defined in net.stefanfuchs.fux.avro.enums.common.entity.ad.AdEventType"
+    },
+    {
+      "name": "payload",
+      "type": [
+        "null",
+        {
+          "type": "map",
+          "values": "string"
+        }
+      ],
+      "default": null
+    }
+  ]
+}
